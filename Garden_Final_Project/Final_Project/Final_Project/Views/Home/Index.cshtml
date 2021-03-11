@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Grow Me Garden!";
+}
+
+@model Final_Project.Models.ViewModels.HomeControllerViewModels.IndexViewModel
+
+
+
+<div>
+    <h1>Welcome to GrowMeGarden!</h1>
+    <p><em>Where you can search thousands of plants, create a garden (or two) and make sure weather is in perfect shape to watch them all bloom!
+        Start searching plants now!</em></p>
+</div>
+<br />
+<div class="text-center">
+    <form asp-controller="Garden" asp-action="SearchResult" method="post">
+        <p>
+            Plant Search: <input type="text" name="search" /><input type="submit" value="Go!" />
+        </p>
+    </form>
+   
+        @foreach (var Plant in @Model.Plants)
+        {
+        <div id="plantoftheday">
+            <h1>@Plant.Name - @Plant.ScientificName</h1>
+            <img src="@Plant.ImageURL" />
+        </div>
+        }
+    
+</div>
+<a class="nav-link text-dark" asp-area="" asp-controller="Garden" asp-action="MemberPortal">MemberPortal</a>

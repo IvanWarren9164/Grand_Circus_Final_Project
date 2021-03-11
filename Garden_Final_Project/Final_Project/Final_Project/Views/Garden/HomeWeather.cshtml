@@ -1,0 +1,13 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Final_Project.Models.ViewModels.GardenControllerViewModels.HomeWeatherViewModel
+    <link rel="stylesheet" href="~/css/stylesheet.css" />
+
+    <div class="weatherResults">
+        <h1>Current temperature is @Model.Temperature degrees Fahrenheit!</h1>
+        <img src="@Model.ImgUrl" />
+    </div>

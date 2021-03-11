@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Final_Project.Models.ViewModels.GardenControllerViewModels.MemberProfileFormViewModel
+    <link rel="stylesheet" href="~/css/stylesheet.css" />
+@*THIS IS TO BE LINKED IN THE USER HOME PAGE*@
+
+
+<h1>Congrats on becoming a gardener!</h1>
+<h3>Please provide a little more info to complete your gardener account.</h3>
+
+<form asp-controller="Garden" asp-action="StoreGardenerData" method="post">
+    <div>
+        <label asp-for="FirstName">What's your first name?</label>
+        <input asp-for="FirstName" />
+    </div>
+
+    <br />
+
+    <div>
+        <label asp-for="LastName">What's your last name?</label>
+        <input asp-for="LastName" />
+    </div>
+    <br />
+    <div>
+
+        <label asp-for="Usage">How are you using these plants?</label>
+        <select asp-for="Usage">
+            <option>Farming</option>
+            <option>Leisure</option>
+            <option>Aesthetics</option>
+
+        </select>
+
+    </div>
+
+    <br />
+
+    <button class="btn btn-dark">SUBMIT INFO</button>
+
+</form>
