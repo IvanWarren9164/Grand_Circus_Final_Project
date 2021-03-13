@@ -64,6 +64,8 @@ namespace Final_Project.Controllers
             viewModel.Usage = memberAlreadyExist.usage;
             viewModel.UserHaveFave = true;
             viewModel.InDatabase = true;
+            viewModel.FirstName = memberAlreadyExist.firstName;
+            viewModel.FavoritePlant = viewModel.TreflePlantName;
 
             return View("MemberProfile", viewModel);
         }

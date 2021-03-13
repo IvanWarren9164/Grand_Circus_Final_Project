@@ -9,5 +9,7 @@ namespace Final_Project
     {
         public string TrefleAPIKey { get; set; }
         public string WeatherAPIKey { get; set; }
+
+        public string DefaultConnection { get; set; }
     }
 }

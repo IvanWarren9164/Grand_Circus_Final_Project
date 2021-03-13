@@ -29,8 +29,13 @@ namespace Final_Project
 
 
             services.AddDbContext<GardenDBContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                {
+                    var connectionString = Configuration.GetConnectionString("DefaultConnection");
+                    options.UseSqlServer(connectionString);
+                });
+
+                //options.UseSqlServer(
+                //    Configuration.GetConnectionString("DefaultConnection")));
 
 
             services.AddDefaultIdentity<IdentityUser>(options =>
