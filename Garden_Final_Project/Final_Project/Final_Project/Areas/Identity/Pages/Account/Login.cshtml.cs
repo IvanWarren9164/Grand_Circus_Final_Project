@@ -83,7 +83,11 @@ namespace Final_Project.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    return RedirectToAction("MemberPortal", "Garden");
+                    /*
+                     * GO HERE IF YOU NEED TO CHANGE THE LOGIN REDIRECT SAM AND CANDACE
+                     */
+                    //return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
                 {

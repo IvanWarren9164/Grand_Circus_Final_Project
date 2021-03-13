@@ -8849,11 +8849,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\goods\\source\\repos\\Garden_Final_Project\\Final_Project\\Final_Project\\Final_Project.csproj",
+      "projectUniqueName": "C:\\Users\\goods\\source\\repos\\Grand_Circus_Final_Project-1\\Garden_Final_Project\\Final_Project\\Final_Project\\Final_Project.csproj",
       "projectName": "Final_Project",
-      "projectPath": "C:\\Users\\goods\\source\\repos\\Garden_Final_Project\\Final_Project\\Final_Project\\Final_Project.csproj",
+      "projectPath": "C:\\Users\\goods\\source\\repos\\Grand_Circus_Final_Project-1\\Garden_Final_Project\\Final_Project\\Final_Project\\Final_Project.csproj",
       "packagesPath": "C:\\Users\\goods\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\goods\\source\\repos\\Garden_Final_Project\\Final_Project\\Final_Project\\obj\\",
+      "outputPath": "C:\\Users\\goods\\source\\repos\\Grand_Circus_Final_Project-1\\Garden_Final_Project\\Final_Project\\Final_Project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\goods\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -64,6 +64,8 @@ namespace Final_Project.Controllers
             viewModel.Usage = memberAlreadyExist.usage;
             viewModel.UserHaveFave = true;
             viewModel.InDatabase = true;
+            viewModel.FirstName = memberAlreadyExist.firstName;
+            viewModel.FavoritePlant = viewModel.TreflePlantName;
 
             return View("MemberProfile", viewModel);
         }
@@ -109,7 +111,7 @@ namespace Final_Project.Controllers
                     _gardenDBContext.SaveChanges();
 
 
-                    return View("MemberProfileForm");
+                    return View("MemberPortal");
                 }
                 else
                 {
@@ -128,7 +130,7 @@ namespace Final_Project.Controllers
                 //save database
                 _gardenDBContext.SaveChanges();
 
-                return View("MemberProfileForm");
+                return View("MemberPortal");
             }
 
         }

@@ -31,13 +31,13 @@ namespace Final_Project.Models.APIModels
             public string common_name { get; set; }
             public string slug { get; set; }
             public string scientific_name { get; set; }
-            public int year { get; set; }
+            public int? year { get; set; }
             public string bibliography { get; set; }
             public string author { get; set; }
             public string status { get; set; }
             public string rank { get; set; }
             public string family_common_name { get; set; }
-            public int genus_id { get; set; }
+            public int? genus_id { get; set; }
             public string image_url { get; set; }
             public string[] synonyms { get; set; }
             public string genus { get; set; }
