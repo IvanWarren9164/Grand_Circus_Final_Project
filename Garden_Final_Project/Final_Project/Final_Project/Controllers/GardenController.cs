@@ -261,13 +261,55 @@ namespace Final_Project.Controllers
                     plantDate = plant.plantDate,
                     harvestDate = plant.harvestDate,
                     image_url = plant.image_url,
-                    Id = plant.GardenID
-
+                    Id = plant.GardenID,
+                    Quantity = plant.Quantity,
+                    Location = plant.Location,
+                    PlantNote = plant.PlantNote
                 })
                 .ToList();
 
             return View(viewModel);
         }
+
+        public async Task<IActionResult> UpdateNote(int Id,string PlantNote)
+        {
+            var plantDB = new GardenDAL();
+            var noteupdate = new UpdateNoteViewModel();
+            var gardener = await _userManager.GetUserAsync(User);
+            var viewModel = new MemberGardenViewModel();
+
+
+            plantDB = _gardenDBContext.Garden
+                .Where(garden => garden.GardenID == Id)
+                .FirstOrDefault();
+
+            noteupdate.PlantNote = PlantNote;
+
+            plantDB.PlantNote = noteupdate.PlantNote;
+            _gardenDBContext.SaveChanges();
+
+            var gardenerView = _gardenDBContext.Garden.Where(member => member.Id == gardener.Id).ToList();
+            viewModel.garden = new List<MemberGardenViewModel>();
+
+            viewModel.garden = gardenerView
+            .Select(plant => new MemberGardenViewModel()
+            {
+                common_name = plant.common_name,
+                scientific_name = plant.scientific_name,
+                plantDate = plant.plantDate,
+                harvestDate = plant.harvestDate,
+                image_url = plant.image_url,
+                Id = plant.GardenID,
+                Quantity = plant.Quantity,
+                Location = plant.Location,
+                PlantNote = plant.PlantNote
+            })
+            .ToList();
+
+
+            return View("MemberGarden", viewModel);
+        }
+
 
         public async Task<IActionResult> SearchResult(string search)
         {

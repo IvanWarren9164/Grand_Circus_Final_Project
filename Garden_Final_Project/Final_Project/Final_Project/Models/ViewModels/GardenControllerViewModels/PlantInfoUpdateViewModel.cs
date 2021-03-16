@@ -21,5 +21,11 @@ namespace Final_Project.Models.ViewModels.GardenControllerViewModels
         public List<Plants> Results { get; set; }
 
         private DateTime? dateCreated = null;
+
+        public string Location { get; set; }
+
+        public int Quantity { get; set; }
+
+        public string PlantNote { get; set; }
     }
 }

@@ -22,6 +22,19 @@
                 <img src="@plant.image_url" />
                 <a asp-controller="Garden" asp-route-id="@plant.Id" asp-action="DeletePlant">Delete Plant?</a>
             </p>
+            <form asp-controller="Garden" asp-action="UpdateNote" asp-route-Id="@plant.Id" asp-route-PlantNote="@plant.PlantNote">
+                <textarea id="@plant.PlantNote" name="PlantNote" rows="4" cols="50">
+                @if(plant.PlantNote == null)
+                {
+                    @Html.Raw("No Note Available");
+                }
+                else
+                {
+                    @plant.PlantNote
+                }
+                </textarea>
+                <button>Submit</button>
+            </form>
            
         </div>
     }

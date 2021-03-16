@@ -164,7 +164,10 @@ namespace Final_Project.Migrations
                     harvestDate = table.Column<DateTime>(nullable: false),
                     image_url = table.Column<string>(nullable: true),
                     Id = table.Column<string>(nullable: true),
-                    UserId = table.Column<string>(nullable: true)
+                    UserId = table.Column<string>(nullable: true),
+                    Location = table.Column<string>(nullable: true),
+                    Quantity = table.Column<int>(nullable: false),
+                    PlantNote = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
