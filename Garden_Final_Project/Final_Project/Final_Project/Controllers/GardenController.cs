@@ -64,6 +64,8 @@ namespace Final_Project.Controllers
             viewModel.Usage = memberAlreadyExist.usage;
             viewModel.UserHaveFave = true;
             viewModel.InDatabase = true;
+            viewModel.FirstName = memberAlreadyExist.firstName;
+            viewModel.FavoritePlant = viewModel.TreflePlantName;
 
             return View("MemberProfile", viewModel);
         }
@@ -118,17 +120,23 @@ namespace Final_Project.Controllers
             }
             else
             {
-                //OMIT THE ID ASSIGNMENT IF JUST UPDATING DATABASE
-                memberAlreadyExist.firstName = model.FirstName;
-                memberAlreadyExist.lastName = model.LastName;
+                if (Validation.CheckName(model.FirstName)
+                && Validation.CheckName(model.LastName))
+                {
+                    //OMIT THE ID ASSIGNMENT IF JUST UPDATING DATABASE
+                    memberAlreadyExist.firstName = model.FirstName;
+                    memberAlreadyExist.lastName = model.LastName;
 
-                memberAlreadyExist.usage = model.Usage;
-                //memberAlreadyExist.favoriteplant = model.FavoritePlant;
+                    memberAlreadyExist.usage = model.Usage;
+                    //memberAlreadyExist.favoriteplant = model.FavoritePlant;
 
-                //save database
-                _gardenDBContext.SaveChanges();
+                    //save database
+                    _gardenDBContext.SaveChanges();
 
-                return View("MemberPortal");
+                    return View("MemberPortal");
+                }
+                return View("MemberProfileForm");
+
             }
 
         }

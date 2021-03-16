@@ -10,7 +10,8 @@
 
 @if (!Model.InDatabase)
 {
-    <a asp-controller="Garden" asp-action="MemberProfileForm">Please head to the member profile form to update your information!</a>
+    <h1>Uh-oh! You haven't filled out your profile yet!</h1>
+    <a asp-controller="Garden" asp-action="MemberProfileForm">Please click here to update your information!</a>
 }
 else
 {
