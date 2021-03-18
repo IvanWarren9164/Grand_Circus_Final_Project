@@ -7,22 +7,25 @@
 @model Final_Project.Models.ViewModels.GardenControllerViewModels.PlantInfoUpdateViewModel
 <link rel="stylesheet" href="~/css/stylesheet.css" />
 
-<form asp-controller="Garden" asp-action="AddPlant" asp-route-scientific_name="@Model.scientific_name" asp-route-common_name="@Model.common_name" asp-route-image_url="@Model.image_url" method="post">
+<div id="addplant">
+    <form asp-controller="Garden" asp-action="AddPlant" asp-route-scientific_name="@Model.scientific_name" asp-route-common_name="@Model.common_name" asp-route-image_url="@Model.image_url" method="post">
 
-    <label>Plant Date</label>
-    <input asp-for="@Model.plantDate" />
+        <label>Plant Date</label>
+        <input asp-for="@Model.plantDate" />
+        <br />
+        <label>Harvest Date</label>
+        <input asp-for="@Model.harvestDate" />
+        <br />
+        <label>How many are you planting?</label>
+        <input asp-for="@Model.Quantity" />
+        <br />
+        <label>
+            Where are you planting them?
+            (Enter a physical location that helps you remember where you planted!)
+        </label>
+        <input asp-for="@Model.Location" />
 
-    <label>Harvest Date</label>
-    <input asp-for="@Model.harvestDate" />
+        <button type="submit">Update Plant</button>
 
-    <label>How many are you planting?</label>
-    <input asp-for="@Model.Quantity" />
-
-    <label>Where are you planting them?
-    (Enter a physical location that helps you remember where you planted!)</label>
-    <input asp-for="@Model.Location" />
-
-    <button type="submit">Update Plant</button>
-
-</form>
-
+    </form>
+</div>

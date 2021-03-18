@@ -7,23 +7,35 @@
 @model Final_Project.Models.ViewModels.GardenControllerViewModels.MemberGardenViewModel
     <link rel="stylesheet" href="~/css/stylesheet.css" />
 
-<div id="garden">
-    <h2>MeGarden</h2>
+    <div id="garden">
 
-    @foreach (var plant in Model.garden)
-    {
-        <div class="plant">
+        <div class="gardenheader">
+            <div class="gardentitle">
+                <h1>MeGarden</h1>
+            </div>
 
-            <p>
-                <b>Name:</b> @plant.common_name<br />
-                <b>Scientific Name: </b>@plant.scientific_name<br />
-                <b>Date of Planting: </b>@plant.plantDate<br />
-                <b>Date of Harvest: </b>@plant.harvestDate<br /><br />
-                <img src="@plant.image_url" />
-                <a asp-controller="Garden" asp-route-id="@plant.Id" asp-action="DeletePlant">Delete Plant?</a>
-            </p>
-            <form asp-controller="Garden" asp-action="UpdateNote" asp-route-Id="@plant.Id" asp-route-PlantNote="@plant.PlantNote">
-                <textarea id="@plant.PlantNote" name="PlantNote" rows="4" cols="50">
+            <div class="addplant">
+                <h1><a asp-controller="Home" asp-action="Index">Add To Garden</a></h1>
+            </div>
+        </div>
+        <br />
+
+        @foreach (var plant in Model.garden)
+        {
+            <div class="plant">
+
+                <div class="column1garden">
+                    <b>Name:</b> @plant.common_name<br />
+                    <b>Scientific Name: </b>@plant.scientific_name<br />
+                    <b>Quantity: </b>@plant.Quantity<br />
+                    <b>Location within the Garden: </b>@plant.Location<br />
+                    <b>Date of Planting: </b>@plant.plantDate<br />
+                    <b>Date of Harvest: </b>@plant.harvestDate<br /><br />
+
+                    <a class="delete" asp-controller="Garden" asp-route-id="@plant.Id" asp-action="DeletePlant">Delete Plant?</a>
+
+                    <form asp-controller="Garden" asp-action="UpdateNote" asp-route-Id="@plant.Id" asp-route-PlantNote="@plant.PlantNote">
+                        <textarea id="@plant.PlantNote" name="PlantNote" rows="4" cols="50">
                 @if(plant.PlantNote == null)
                 {
                     @Html.Raw("No Note Available");
@@ -33,9 +45,17 @@
                     @plant.PlantNote
                 }
                 </textarea>
-                <button>Submit</button>
-            </form>
-           
-        </div>
-    }
-</div>
+                        <br />
+                        <button>Submit</button>
+                    </form>
+              
+                </div>
+                <br />
+                <div class="centertext">
+                    <img class="plantimg" src="@plant.image_url" />
+
+                </div>
+            </div>
+            <br />
+        }
+    </div>
