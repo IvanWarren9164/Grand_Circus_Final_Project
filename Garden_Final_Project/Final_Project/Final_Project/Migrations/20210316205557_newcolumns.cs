@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Final_Project.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class newcolumns : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
