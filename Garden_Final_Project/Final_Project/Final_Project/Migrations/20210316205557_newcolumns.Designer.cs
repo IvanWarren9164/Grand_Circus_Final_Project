@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Final_Project.Migrations
 {
     [DbContext(typeof(GardenDBContext))]
-    [Migration("20210315212545_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210316205557_newcolumns")]
+    partial class newcolumns
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

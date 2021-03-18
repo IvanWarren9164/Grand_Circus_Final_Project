@@ -362,6 +362,8 @@ namespace Final_Project.Controllers
             plantDB.harvestDate = model.harvestDate;
             plantDB.plantDate = model.plantDate;
             plantDB.Id = loggedInUser.Id;
+            plantDB.Location = model.Location;
+            plantDB.Quantity = model.Quantity;
        
             _gardenDBContext.Garden.Add(plantDB);
             _gardenDBContext.SaveChanges();
@@ -376,7 +378,10 @@ namespace Final_Project.Controllers
                 scientific_name = plant.scientific_name,
                 harvestDate = plant.harvestDate,
                 plantDate = plant.plantDate,
-                Id = plant.GardenID
+                Id = plant.GardenID,
+                Location = plant.Location,
+                Quantity = plant.Quantity
+                
                 
             }).ToList();
 

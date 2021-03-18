@@ -19,18 +19,33 @@
 
 
             <div class="searchItems">
-                <p>
-                    <b>Common Name: </b>@plant.common_name<br />
-                    <b>Scientific Name: </b>@plant.scientific_name<br />
-                    <img src="@plant.image_url" />
+                
+                        <div class="column1">
+                            <b>Common Name: </b>@plant.common_name<br />
+                            <b>Scientific Name: </b>@plant.scientific_name<br />
+                            @if (@Model.userLoggedIn)
+                            {
+                                <a asp-controller="Garden" asp-action="PlantInfoUpdate" asp-route-index="@index" asp-route-search="@Model.search">Add to Garden</a><br />
+                                <a asp-controller="Garden" asp-action="MakeFavorite" asp-route-index="@index" asp-route-search="@Model.search">Make My Favorite!</a>
+                            }
+                        </div>
+                        <div class="column2">
 
-                   @if(@Model.userLoggedIn){
-                    <a asp-controller="Garden" asp-action="PlantInfoUpdate" asp-route-index="@index" asp-route-search="@Model.search">Add to Garden</a>
-                    <a asp-controller="Garden" asp-action="MakeFavorite" asp-route-index="@index" asp-route-search="@Model.search">Make My Favorite!</a>
-                    }
-                </p>
+                            @if (plant.image_url != null)
+                            {
+                                <img class="plantimg" src="@plant.image_url" />
+                            }
+                            else
+                            {
+                                <img class="plantimg" src="https://upload.wikimedia.org/wikipedia/en/6/60/No_Picture.jpg" />
+                            }
+
+
+                        </div>
+                
 
             </div>
+            <br />
             index += 1;
         }
     }

@@ -54,13 +54,15 @@ button.accept-policy {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    background-color: #729b8b;
+    margin-bottom: 60px;
+    font-family: 'Cormorant Unicase', serif;
 }
 .footer {
   position: absolute;
