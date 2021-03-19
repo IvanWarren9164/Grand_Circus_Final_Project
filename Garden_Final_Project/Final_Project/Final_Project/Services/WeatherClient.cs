@@ -20,8 +20,6 @@ namespace Final_Project.Services
             _config = config;
         }
 
-        //0bb6a2058b1b7e84cad84945812f22d6
-
         public async Task<WeatherResponseModel> GetWeather(double lat, double lon)
         {
             var APIKey = _config.Value.WeatherAPIKey;

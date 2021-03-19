@@ -21,10 +21,7 @@ namespace Final_Project.Services
             {
                 return true;
             }
-            else
-            {
                 return false;
-            }
         }
 
         public static bool CheckFavorite(string userentry)
@@ -40,10 +37,7 @@ namespace Final_Project.Services
             {
                 return true;
             }
-            else
-            {
                 return false;
-            }
         }
     }
 }

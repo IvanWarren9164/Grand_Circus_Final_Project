@@ -32,8 +32,6 @@
                     <b>Date of Planting: </b>@plant.plantDate<br />
                     <b>Date of Harvest: </b>@plant.harvestDate<br /><br />
 
-                    <a class="delete" asp-controller="Garden" asp-route-id="@plant.Id" asp-action="DeletePlant">Delete Plant?</a>
-
                     <form asp-controller="Garden" asp-action="UpdateNote" asp-route-Id="@plant.Id" asp-route-PlantNote="@plant.PlantNote">
                         <textarea id="@plant.PlantNote" name="PlantNote" rows="4" cols="50">
                 @if(plant.PlantNote == null)
@@ -52,9 +50,10 @@
                 </div>
                 <br />
                 <div class="centertext">
-                    <img class="plantimg" src="@plant.image_url" />
-
+                    <img class="plantimg" src="@plant.image_url" /><br />
+                    <a class="delete" asp-controller="Garden" asp-route-id="@plant.Id" asp-action="DeletePlant">Delete Plant?</a>
                 </div>
+                
             </div>
             <br />
         }

@@ -27,8 +27,6 @@ namespace Final_Project.Services
 
         }
 
-
-
         private async Task<T> GetAsync<T>(string endPoint)
         {
             var response = await _client.GetAsync(endPoint);

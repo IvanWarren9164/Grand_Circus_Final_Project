@@ -5,7 +5,7 @@
     border: 4px solid black;
     border-radius: 10px;
     margin: auto;
-    width: 1000px;
+    width: 75%;
     padding: 15px;
     background-color: aquamarine;
 }
@@ -95,14 +95,16 @@ nav {
 }
 
 .column2 {
-    justify-content: left;
+    justify-content: center;
+    margin: auto;
     width: 100%;
+    text-align: center;
     
 }
 
 .plantimg{
-    width: 500px;
-    height: 500px;
+    width: 50%;
+    height: 50%;
 }
 
 #addplant {
@@ -117,8 +119,8 @@ nav {
     padding: 10px;
     border: 2px solid black;
     border-radius: 10px;
-    background-color: lightsteelblue ;
-    width: 600px;
+    background-color: beige;
+    width: 50%;
     margin:auto;
 }
 
@@ -161,4 +163,7 @@ a{
 }
 .gardentitle {
     width: 50%;
+}
+.devlink{
+    color: darkgreen;
 }
