@@ -12,8 +12,8 @@
 
     @if (Model.InDatabase)
     {
-    <h1>Current temperature is @Model.Temperature degrees Fahrenheit!</h1>
-    <img src="@Model.ImgUrl"/>
+    <h1>Current temperature is @Model.Temperature<span>&#176;</span>F!</h1>
+    <img class="weatherIcon" src="@Model.ImgUrl"/>
     }
     else
     {
