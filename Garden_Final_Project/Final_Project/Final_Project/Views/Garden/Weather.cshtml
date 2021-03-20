@@ -7,24 +7,17 @@
 @model Final_Project.Models.ViewModels.GardenControllerViewModels.WeatherViewModel
 
     <link rel="stylesheet" href="~/css/stylesheet.css" />
-
-<h1>Welcome to our weather feature!</h1>
-<p>Monitor the weather and health of your plants from anywhere in the world!</p>
-
-
-@*@if (Model.Temperature == 0) { 
-    <h1>Sorry, it looks like you didn't fill out the remainder of your profile information. Do that to access this feature!</h1>
-}
-else
-{*@
+    <div id="weatherHeader">
+        <h1>Welcome to Our Weather Feature!</h1>
+        <p><i>Monitor the weather and health of your plants from anywhere in the world!</i></p>
+    </div>
     <div id="weatheroptions">
         <div class="weather">
-            <a asp-controller="Garden" asp-action="HomeWeather">ARE YOU IN THE SAME LOCATION OF YOUR PLANTS? CLICK HERE!</a>
+            <a class="weatherLink" asp-controller="Garden" asp-action="HomeWeather">ARE YOU IN THE SAME LOCATION OF YOUR PLANTS OR JUST WANT TO GET CURRENT LOCATION WEATHER? CLICK HERE!</a>
         </div>
         <br />
         <div class="weather">
-            <a asp-controller="Garden" asp-action="VacationWeather">HAVE YOU TRAVELED FAR AWAY FROM YOUR PLANTS AND WANT TO CHECK IN ON THE WEATHER THERE? CLICK HERE</a>
+            <a class="weatherLink" asp-controller="Garden" asp-action="VacationWeather">HAVE YOU TRAVELED FAR AWAY FROM YOUR PLANTS AND WANT TO CHECK IN ON THE GARDEN WEATHER? CLICK HERE</a>
         </div>
 
     </div>
-@*}*@
