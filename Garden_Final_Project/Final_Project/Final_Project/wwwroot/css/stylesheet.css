@@ -5,7 +5,7 @@
     border: 4px solid black;
     border-radius: 10px;
     margin: auto;
-    width: 1000px;
+    width: 75%;
     padding: 15px;
     background-color: aquamarine;
 }
@@ -31,13 +31,25 @@
 }
 
 #weatheroptions {
-    border: 4px solid black;
+    border: 2px solid black;
     border-radius: 10px;
     margin: auto;
-    width: 50%;
+    width: 75%;
     padding: 15px;
     background: url("https://cdn.downtoearth.org.in/library/large/2019-10-18/0.81648400_1571393318_cloud1.jpg");
     justify-content: center;
+    text-align: center;
+    
+}
+
+
+.weatherIcon {
+    width: 35%;
+   height: 35%;
+}
+
+.weatherLink{
+    color: black;
 }
 
 .weather {
@@ -48,31 +60,36 @@
     justify-content: center;
 }
 
-.weatherResults{
-    justify-content: center;
+#weatherHeader {
+    margin: auto;
+    width: 75%;
+    text-align: center;
 }
 
-/*.garden .searchResults {
-    padding: 10px;
+.weatherResults {
+    justify-content: center;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    background-color: lightyellow;
     border: 2px solid black;
     border-radius: 10px;
-    justify-content: center;
-}*/
+    position: fixed;
+    top: 25%;
+    right: 25%;
+}
 
 
-/*updates background color of nav bar*/
 nav {
     background-color: sienna !important;
   
 }
 
-/*updates the fontcolor for title of site in the navigation menu*/
 .navbar-brand {
     color: lightyellow !important;
     font-family: 'Cormorant Unicase', serif;
 }
 
-/*updates the fontcolor for the other items in the navigation menu*/
 .nav-link {
     color: lightyellow !important;
     font-family: 'Cormorant Unicase', serif;
@@ -95,14 +112,16 @@ nav {
 }
 
 .column2 {
-    justify-content: left;
+    justify-content: center;
+    margin: auto;
     width: 100%;
+    text-align: center;
     
 }
 
 .plantimg{
-    width: 500px;
-    height: 500px;
+    width: 50%;
+    height: 50%;
 }
 
 #addplant {
@@ -117,8 +136,8 @@ nav {
     padding: 10px;
     border: 2px solid black;
     border-radius: 10px;
-    background-color: lightsteelblue ;
-    width: 600px;
+    background-color: beige;
+    width: 50%;
     margin:auto;
 }
 
@@ -161,4 +180,7 @@ a{
 }
 .gardentitle {
     width: 50%;
+}
+.devlink{
+    color: darkgreen;
 }

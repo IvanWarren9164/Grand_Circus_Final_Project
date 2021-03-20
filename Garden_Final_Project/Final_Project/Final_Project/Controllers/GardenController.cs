@@ -37,10 +37,6 @@ namespace Final_Project.Controllers
         [Authorize] //uncomment when ready to test everything 
         public IActionResult Index()
         {
-            
-
-
-
             return View();
         }
 
@@ -191,11 +187,6 @@ namespace Final_Project.Controllers
             {
                 viewModel.InDatabase = false;
             }
-
-            
-
-            
-
             return View(viewModel);
         }
 
