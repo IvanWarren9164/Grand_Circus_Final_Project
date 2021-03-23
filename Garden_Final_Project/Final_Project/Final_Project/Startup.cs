@@ -23,7 +23,6 @@ namespace Final_Project
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
 
@@ -41,13 +40,6 @@ namespace Final_Project
                 .AddEntityFrameworkStores<GardenDBContext>();
 
             services.Configure<AppConfig>(options => Configuration.GetSection("Secrets").Bind(options));
-            //var trefleAPI = Configuration.GetSection("Secrets:TrefleAPIKey").Value;
-            //var weatherAPI = Configuration.GetSection("Secrets:WeatherAPIKey").Value;
-
-            services.AddHttpClient<TropicalFruitClient>(httpClient =>
-            {
-                httpClient.BaseAddress = new Uri("http://tropicalfruitandveg.com/api/tfvjsonapi.php");
-            });
 
             services.AddHttpClient<TrefleClient>(httpClient =>
             {
@@ -69,7 +61,6 @@ namespace Final_Project
             services.AddRazorPages();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -79,7 +70,6 @@ namespace Final_Project
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
             app.UseHttpsRedirection();

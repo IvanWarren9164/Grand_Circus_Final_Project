@@ -12,9 +12,7 @@ namespace Final_Project.Services
     {
         private readonly HttpClient _client;
 
-        public GeoIPClient(HttpClient client)
-
-            
+        public GeoIPClient(HttpClient client)  
         {
             _client = client;
         }

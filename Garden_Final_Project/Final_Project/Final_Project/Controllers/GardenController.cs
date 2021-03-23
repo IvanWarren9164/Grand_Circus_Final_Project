@@ -34,14 +34,14 @@ namespace Final_Project.Controllers
             _weatherClient = weatherClient;
         }
 
-        [Authorize] //uncomment when ready to test everything 
+        [Authorize]
         public IActionResult Index()
         {
             return View();
         }
 
         public IActionResult MemberProfileForm()
-        {//NO CONTENT NEEDED HERE
+        {
             return View();
         }
 
@@ -68,10 +68,8 @@ namespace Final_Project.Controllers
 
         public async Task<IActionResult> StoreGardenerData(MemberProfileFormViewModel model)
         {
-
-            //use this to get userID
             var gardener = await _userManager.GetUserAsync(User);
-            var profileDAL = new GardenerProfileDAL(); //for a new member that does not exist
+            var profileDAL = new GardenerProfileDAL();
             var response = await _geoIPClient.GetLocation();
             var memberAlreadyExist = new GardenerProfileDAL();
             memberAlreadyExist = _gardenDBContext.Gardener.Where(user => user.Id == gardener.Id).FirstOrDefault();
@@ -79,15 +77,12 @@ namespace Final_Project.Controllers
             bool memberExists = false;
             var viewModel = new MemberProfileFormViewModel();
 
-            //assume member doesn't already exist...can't update user profile 
-
             if (memberAlreadyExist != null)
             {
                 memberExists = true;
             }
 
             if (!memberExists)
-         
             {
                 if (Validation.CheckName(model.FirstName)
                 && Validation.CheckName(model.LastName))
@@ -96,16 +91,12 @@ namespace Final_Project.Controllers
                     profileDAL.firstName = model.FirstName;
                     profileDAL.lastName = model.LastName;
                     profileDAL.usage = model.Usage;
-                    //profileDAL.favoriteplant = model.FavoritePlant;
 
-                    //This needs to be done earlier in the process but adding for now
                     profileDAL.homeLat = response.latitude.ToString();
                     profileDAL.homeLon = response.longitude.ToString();
 
-                    //add to database
                     _gardenDBContext.Gardener.Add(profileDAL);
                     _gardenDBContext.SaveChanges();
-
 
                     return View("MemberPortal");
                 }
@@ -119,22 +110,17 @@ namespace Final_Project.Controllers
                 if (Validation.CheckName(model.FirstName)
                 && Validation.CheckName(model.LastName))
                 {
-                    //OMIT THE ID ASSIGNMENT IF JUST UPDATING DATABASE
                     memberAlreadyExist.firstName = model.FirstName;
                     memberAlreadyExist.lastName = model.LastName;
 
                     memberAlreadyExist.usage = model.Usage;
-                    //memberAlreadyExist.favoriteplant = model.FavoritePlant;
 
-                    //save database
                     _gardenDBContext.SaveChanges();
 
                     return View("MemberPortal");
                 }
                 return View("MemberProfileForm");
-
             }
-
         }
 
         public async Task<IActionResult> MemberProfile()
@@ -148,8 +134,6 @@ namespace Final_Project.Controllers
             {
                 viewModel.InDatabase = true;
 
-                //Grab user ID to pull database info for user in the Member table
-
                 var gardenerProfile = _gardenDBContext.Gardener.Where(member => member.Id == gardener.Id).FirstOrDefault();
 
                 viewModel.FirstName = gardenerProfile.firstName;
@@ -159,8 +143,6 @@ namespace Final_Project.Controllers
                 {
                     viewModel.FavoritePlant = gardenerProfile.favoriteplant;
                     viewModel.UserHaveFave = true;
-                    //need to get image of favorite plant?
-                    //just grab the first image for now!
                     var response = await _trefleClient.GetPlants(viewModel.FavoritePlant);
 
                     if (response != null)
@@ -173,15 +155,11 @@ namespace Final_Project.Controllers
                         viewModel.ImgFavPlant = "https://dummyimage.com/100/fff/0011ff.png&text=Image+Not+Found";
                         viewModel.TreflePlantName = "Looks like your favorite plant cannot be found";
                     }
-
-
                 }
                 else
                 {
                     viewModel.UserHaveFave = false;
                 }
-
-
             }
             else
             {
@@ -190,21 +168,18 @@ namespace Final_Project.Controllers
             return View(viewModel);
         }
 
-
-        //THIS PAGE SHOULD ONLY BE ACCESSIBLE AFTER COMPLETING USER PROFILE INFO ABOVE!!!
         public IActionResult Weather()
-        { //NO CONTENT NEEDED HERE
+        {
             return View();
         }
 
         public async Task<IActionResult> HomeWeather()
         {
-            //use geo api to gather weather
             var response = await _geoIPClient.GetLocation();
             var weather = await _weatherClient.GetWeather(response.latitude, response.longitude);
 
             var viewModel = new HomeWeatherViewModel();
-            //mapt responses to view Model
+
             viewModel.Temperature = weather.current.temp;
             var icon = weather.current.weather[0].icon;
             viewModel.ImgUrl = $"http://openweathermap.org/img/wn/{icon}@2x.png";
@@ -214,21 +189,19 @@ namespace Final_Project.Controllers
 
         public async Task<IActionResult> VacationWeather()
         {
-            //use lat/lon in member table to access weather
             var gardener = await _userManager.GetUserAsync(User);
             var viewModel = new VacationWeatherViewModel();
 
-            //Grab user ID to pull database info for user in the Member table
             var gardenerProfile = _gardenDBContext.Gardener.Where(member => member.Id == gardener.Id).FirstOrDefault();
 
             if (gardenerProfile != null)
             {
                 viewModel.InDatabase = true;
-                //convert string to double
+
                 double.TryParse(gardenerProfile.homeLat, out double latitude);
                 double.TryParse(gardenerProfile.homeLon, out double longitude);
 
-                //get weather
+
                 var weather = await _weatherClient.GetWeather(latitude, longitude);
 
                 viewModel.Temperature = weather.current.temp;
@@ -250,10 +223,10 @@ namespace Final_Project.Controllers
             var viewModel = new MemberGardenViewModel();
             
             var gardenerView = _gardenDBContext.Garden.Where(member => member.Id == gardener.Id).ToList();
-            viewModel.garden = new List<MemberGardenViewModel>();
+            viewModel.plants = new List<Plants>();
 
-            viewModel.garden = gardenerView
-                .Select(plant => new MemberGardenViewModel()
+            viewModel.plants = gardenerView
+                .Select(plant => new Plants()
                 {
                     common_name = plant.common_name,
                     scientific_name = plant.scientific_name,
@@ -266,7 +239,10 @@ namespace Final_Project.Controllers
                     PlantNote = plant.PlantNote
                 })
                 .ToList();
-
+            if(viewModel.plants.Count == 0)
+            {
+                return View("EmptyGarden");
+            }
             return View(viewModel);
         }
 
@@ -305,7 +281,6 @@ namespace Final_Project.Controllers
             })
             .ToList();
 
-
             return View("MemberGarden", viewModel);
         }
 
@@ -313,9 +288,6 @@ namespace Final_Project.Controllers
         public async Task<IActionResult> SearchResult(string search)
         {
             var loggedInUser = await _userManager.GetUserAsync(User);
-
-          
-
             var searchresult = await _trefleClient.GetPlants(search);
             var viewModel = new SearchResultViewModel();
             viewModel.results = new List<Plants>();
@@ -339,6 +311,10 @@ namespace Final_Project.Controllers
                 viewModel.userLoggedIn = false;
             }
 
+            if(viewModel.results.Count == 0)
+            {
+                return View("NoResults");
+            }
             return View(viewModel);
         }
         public async Task<IActionResult> AddPlant(PlantInfoUpdateViewModel model)
@@ -372,10 +348,7 @@ namespace Final_Project.Controllers
                 Id = plant.GardenID,
                 Location = plant.Location,
                 Quantity = plant.Quantity
-                
-                
             }).ToList();
-
 
             return View("MemberGarden", viewGarden);
         }
@@ -411,9 +384,6 @@ namespace Final_Project.Controllers
 
         public async Task<IActionResult> PlantInfoUpdate(string search, int index)
         {
-            //var plant = new Plants();
-            //plant = model.results[index];
-
             var searchResult = await _trefleClient.GetPlants(search);
 
             var viewModel = new PlantInfoUpdateViewModel();

@@ -17,6 +17,7 @@ namespace Final_Project.Models.ViewModels.GardenControllerViewModels
         public string image_url { get; set; }
         public int Id { get; set; }
         public IEnumerable<MemberGardenViewModel> garden { get; set; }
+        public List<Plants> plants { get; set; }
         public string Location { get; set; }
         public int Quantity { get; set; }
         public string PlantNote { get; set; }

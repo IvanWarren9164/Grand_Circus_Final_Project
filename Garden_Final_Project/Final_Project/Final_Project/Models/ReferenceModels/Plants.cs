@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -26,6 +27,14 @@ namespace Final_Project.Models.ViewModels
         public string[] synonyms { get; set; }
         public string genus { get; set; }
         public string family { get; set; }
+        public int Id { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime plantDate { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime harvestDate { get; set; }
+        public string Location { get; set; }
+        public int Quantity { get; set; }
+        public string PlantNote { get; set; }
         //public Links1 links { get; set; }
     }
 

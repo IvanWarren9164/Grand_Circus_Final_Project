@@ -12,6 +12,7 @@
 <h3>Please provide a little more info to complete your gardener account.</h3>
 
 <form asp-controller="Garden" asp-action="StoreGardenerData" method="post">
+    <h3>Please only enter letters! No numbers or special characters!</h3>
     <div>
         <label asp-for="FirstName">What's your first name?</label>
         <input asp-for="FirstName" />

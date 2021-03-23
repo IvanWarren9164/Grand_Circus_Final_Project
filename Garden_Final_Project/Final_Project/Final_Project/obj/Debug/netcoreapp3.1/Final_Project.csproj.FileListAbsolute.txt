@@ -1556,3 +1556,5 @@ C:\Users\goods\source\repos\Grand_Circus_Final_Project-1\Garden_Final_Project\Fi
 C:\Users\goods\source\repos\Grand_Circus_Final_Project-1\Garden_Final_Project\Final_Project\Final_Project\obj\Debug\netcoreapp3.1\Final_Project.dll
 C:\Users\goods\source\repos\Grand_Circus_Final_Project-1\Garden_Final_Project\Final_Project\Final_Project\obj\Debug\netcoreapp3.1\Final_Project.pdb
 C:\Users\goods\source\repos\Grand_Circus_Final_Project-1\Garden_Final_Project\Final_Project\Final_Project\obj\Debug\netcoreapp3.1\Final_Project.genruntimeconfig.cache
+C:\Users\broly\Documents\School\Grand Circus\FinalProject\Garden_Final_Project\Final_Project\Final_Project\obj\Debug\netcoreapp3.1\Razor\Views\Garden\NoResults.cshtml.g.cs
+C:\Users\broly\Documents\School\Grand Circus\FinalProject\Garden_Final_Project\Final_Project\Final_Project\obj\Debug\netcoreapp3.1\Razor\Views\Garden\EmptyGarden.cshtml.g.cs
