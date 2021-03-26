@@ -196,7 +196,6 @@ C:\Users\broly\Documents\School\Grand Circus\FinalProject\Garden_Final_Project\F
 C:\Users\broly\Documents\School\Grand Circus\FinalProject\Garden_Final_Project\Final_Project\Final_Project\obj\Release\netcoreapp3.1\Razor\Views\Garden\Weather.cshtml.g.cs
 C:\Users\broly\Documents\School\Grand Circus\FinalProject\Garden_Final_Project\Final_Project\Final_Project\obj\Release\netcoreapp3.1\Razor\Views\Home\About.cshtml.g.cs
 C:\Users\broly\Documents\School\Grand Circus\FinalProject\Garden_Final_Project\Final_Project\Final_Project\obj\Release\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\broly\Documents\School\Grand Circus\FinalProject\Garden_Final_Project\Final_Project\Final_Project\obj\Release\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\broly\Documents\School\Grand Circus\FinalProject\Garden_Final_Project\Final_Project\Final_Project\obj\Release\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\broly\Documents\School\Grand Circus\FinalProject\Garden_Final_Project\Final_Project\Final_Project\obj\Release\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\broly\Documents\School\Grand Circus\FinalProject\Garden_Final_Project\Final_Project\Final_Project\obj\Release\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
@@ -210,3 +209,5 @@ C:\Users\broly\Documents\School\Grand Circus\FinalProject\Garden_Final_Project\F
 C:\Users\broly\Documents\School\Grand Circus\FinalProject\Garden_Final_Project\Final_Project\Final_Project\obj\Release\netcoreapp3.1\Final_Project.dll
 C:\Users\broly\Documents\School\Grand Circus\FinalProject\Garden_Final_Project\Final_Project\Final_Project\obj\Release\netcoreapp3.1\Final_Project.pdb
 C:\Users\broly\Documents\School\Grand Circus\FinalProject\Garden_Final_Project\Final_Project\Final_Project\obj\Release\netcoreapp3.1\Final_Project.genruntimeconfig.cache
+C:\Users\broly\Documents\School\Grand Circus\FinalProject\Garden_Final_Project\Final_Project\Final_Project\obj\Release\netcoreapp3.1\Razor\Views\Garden\EmptyGarden.cshtml.g.cs
+C:\Users\broly\Documents\School\Grand Circus\FinalProject\Garden_Final_Project\Final_Project\Final_Project\obj\Release\netcoreapp3.1\Razor\Views\Garden\NoResults.cshtml.g.cs

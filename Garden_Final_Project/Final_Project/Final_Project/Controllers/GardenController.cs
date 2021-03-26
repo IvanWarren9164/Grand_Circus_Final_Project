@@ -264,10 +264,10 @@ namespace Final_Project.Controllers
             _gardenDBContext.SaveChanges();
 
             var gardenerView = _gardenDBContext.Garden.Where(member => member.Id == gardener.Id).ToList();
-            viewModel.garden = new List<MemberGardenViewModel>();
+            viewModel.plants = new List<Plants>();
 
-            viewModel.garden = gardenerView
-            .Select(plant => new MemberGardenViewModel()
+            viewModel.plants = gardenerView
+            .Select(plant => new Plants()
             {
                 common_name = plant.common_name,
                 scientific_name = plant.scientific_name,
@@ -338,8 +338,8 @@ namespace Final_Project.Controllers
             var gardenerView = _gardenDBContext.Garden.Where(member => member.Id == loggedInUser.Id).ToList();
 
             var viewGarden = new MemberGardenViewModel();
-            viewGarden.garden = new List<MemberGardenViewModel>();
-            viewGarden.garden = gardenerView.Select(plant => new MemberGardenViewModel
+            viewGarden.plants = new List<Plants>();
+            viewGarden.plants = gardenerView.Select(plant => new Plants()
             {
                 common_name = plant.common_name,
                 scientific_name = plant.scientific_name,
@@ -368,8 +368,8 @@ namespace Final_Project.Controllers
             var gardenerView = _gardenDBContext.Garden.Where(member => member.Id == loggedInUser.Id).ToList();
 
             var viewGarden = new MemberGardenViewModel();
-            viewGarden.garden = new List<MemberGardenViewModel>();
-            viewGarden.garden = gardenerView.Select(plant => new MemberGardenViewModel
+            viewGarden.plants = new List<Plants>();
+            viewGarden.plants = gardenerView.Select(plant => new Plants
             {
                 common_name = plant.common_name,
                 scientific_name = plant.scientific_name,
